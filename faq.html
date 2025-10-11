@@ -363,18 +363,20 @@
     </footer>
 
     <script>
-        // Мобильное меню
+        
+        // Мобильное меню 
+        // ✖✕㊂ ☰ ⋯ ∷ ⦙ ⁞ 
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+            if (document.querySelector('.nav-menu').classList.contains('active')) {
+                document.querySelector('.mobile-menu-btn').innerText = "✕";
+                document.querySelector('.mobile-menu-btn').fontWeight = 700;
+            }
+            else {
+                document.querySelector('.mobile-menu-btn').innerText = "☰";
+                document.querySelector('.mobile-menu-btn').fontWeight = 400;
+            }
         });
-        // document.querySelector('.contact-button').addEventListener('focus', function() {
-        //     const highlightableDiv = document.getElementById('highlightable');
-        //     const footExpl = document.getElementById('footer-expl');
-        //     footExpl.classList.add('fade-in');
-        //     setTimeout(() => {
-        //         footExpl.style.display = "none";
-        //     }, 7000);
-        // });
 
 
         document.querySelector('.contact-button').addEventListener('click', function() {

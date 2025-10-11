@@ -6,14 +6,14 @@
     <title>PROмпты — Огромная база лучших промптов для нейросетей</title>
     <meta name="description" content="Лучшие промпты для нейросетей — повысь эффективность работы с AI. Уникальная коллекция промптов для ChatGPT, Midjourney, Stable Diffusion и других нейросетей.">
 
-    <link rel="canonical" href="https://promptsneuro.github.io" />
+    <link rel="canonical" href="https://promptsneuro.github.io/" />
     <meta name="robots" content="index, follow, max-snippet:50, max-image-preview:large">
     <meta name="keywords" content="купить промпты, промпты для нейросетей, Midjourney промпты, GPT промпты, нейрорисование, AI генерация, готовые промпты, DALL-E, Stable Diffusion, искусственный интеллект">
 
     <meta property="og:title" content="PROмпты — Огромная база лучших промптов для нейросетей">
     <meta property="og:description" content="Лучшие промпты для нейросетей — повысь эффективность работы с AI. Уникальная коллекция промптов для ChatGPT, Midjourney, Stable Diffusion и других нейросетей.">
     <meta property="og:image" content="https://promptsneuro.github.io/banner.png">
-    <meta property="og:url" content="https://promptsneuro.github.io">
+    <meta property="og:url" content="https://promptsneuro.github.io/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="PROмпты — Огромная база лучших промптов для нейросетей">
 
@@ -72,7 +72,7 @@
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "ПРОмпты",
-        "url": "https://promptsneuro.github.io"
+        "url": "https://promptsneuro.github.io/"
     }
     </script>
 </head>
@@ -281,10 +281,24 @@
             </div>
         </div>
 
+        <div class="fullscreen-image" id="fullscreenImage">
+            <span class="close-fullscreen">&times;</span>
+            <img src="" alt="Полноэкранное изображение">
+        </div>
+
         <script>
-            // Мобильное меню
+            // Мобильное меню 
+            // ✖✕㊂ ☰ ⋯ ∷ ⦙ ⁞ 
             document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
                 document.querySelector('.nav-menu').classList.toggle('active');
+                if (document.querySelector('.nav-menu').classList.contains('active')) {
+                    document.querySelector('.mobile-menu-btn').innerText = "✕";
+                    document.querySelector('.mobile-menu-btn').fontWeight = 700;
+                }
+                else {
+                    document.querySelector('.mobile-menu-btn').innerText = "☰";
+                    document.querySelector('.mobile-menu-btn').fontWeight = 400;
+                }
             });
 
             // Модальные окна
@@ -296,6 +310,11 @@
             function closeModal(modal) {
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
+                const fullscreenImage = document.getElementById('fullscreenImage');
+                    if (fullscreenImage.classList.contains('active')) {
+                        fullscreenImage.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
             }
 
             promptCards.forEach(card => {
@@ -329,6 +348,42 @@
                             closeModal(modal);
                         }
                     });
+                }
+            });
+
+            const modalImages = document.querySelectorAll('.modal-image img');
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const fullscreenImageImg = fullscreenImage.querySelector('img');
+            const closeFullscreen = document.querySelector('.close-fullscreen');
+            const modalImageContainers = document.querySelectorAll('.modal-image');
+
+            modalImageContainers.forEach(container => {
+              container.addEventListener('click', function() {
+                const img = this.querySelector('img');
+                fullscreenImageImg.src = img.src;
+                fullscreenImage.classList.add('active');
+                document.body.style.overflow = 'hidden';
+              });
+            });
+
+            // modalImages.forEach(image => {
+            //     image.addEventListener('click', function() {
+            //         fullscreenImageImg.src = this.src;
+            //         fullscreenImage.classList.add('active');
+            //         document.body.style.overflow = 'hidden';
+            //     });
+            // });
+
+            closeFullscreen.addEventListener('click', function() {
+                fullscreenImage.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+
+            // Закрытие полноэкранного изображения при клике вне его
+            fullscreenImage.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('active');
+                    document.body.style.overflow = 'auto';
                 }
             });
         </script>

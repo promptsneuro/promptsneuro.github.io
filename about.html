@@ -236,9 +236,18 @@
     </footer>
 
     <script>
-        // Мобильное меню
+        // Мобильное меню 
+        // ✖✕㊂ ☰ ⋯ ∷ ⦙ ⁞ 
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
+            if (document.querySelector('.nav-menu').classList.contains('active')) {
+                document.querySelector('.mobile-menu-btn').innerText = "✕";
+                document.querySelector('.mobile-menu-btn').fontWeight = 700;
+            }
+            else {
+                document.querySelector('.mobile-menu-btn').innerText = "☰";
+                document.querySelector('.mobile-menu-btn').fontWeight = 400;
+            }
         });
     </script>
 </body>

@@ -1,0 +1,14 @@
+# Кэширование изображений (1 год)
+<FilesMatch "\.(avif|webp|jpg|jpeg|png|gif|svg)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>
+
+# Кэширование CSS и JS (1 месяц)
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
+
+# Кэширование шрифтов (1 год)
+<FilesMatch "\.(woff|woff2|ttf|eot)$">
+    Header set Cache-Control "max-age=31536000, public, immutable"
+</FilesMatch>
